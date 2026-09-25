@@ -1,99 +1,93 @@
 import React from 'react';
-import Image from 'next/image';
-import { Search, ArrowUpRight } from 'lucide-react';
+import { Search, Flame, Sparkles } from 'lucide-react';
 import { Input } from '@/components/ui/input';
-import { container, cardBase, tagPill, buttonPrimary, iconAccent } from '@/lib/section-styles';
-
-const snapshot = [
-  { title: 'World of Warcraft', tag: 'Gold', offers: '221.7k listing' },
-  { title: 'Diablo 4', tag: 'Item', offers: '160.5k listing' },
-  { title: 'Roblox', tag: 'Robux', offers: '143.2k listing' },
-];
+import { Badge } from '@/components/ui/badge';
+import { ShaderFire } from '@/components/effects/shader-fire';
+import { AsciiFluid } from '@/components/effects/ascii-fluid';
 
 export const HeroSection = () => {
+  const topSearches = ['Diablo 4', 'Roblox', 'Path of Exile 2', 'World of Warcraft', 'Valorant Points'];
+
   return (
-    <section className="relative w-full bg-slate-950 border-b border-slate-900 overflow-hidden">
-      {/* background photo from public/hero-bg.jpg */}
-      <div className="absolute inset-0 z-0">
-        <Image
-          src="/hero-bg.jpg"
-          alt="Gaming Marketplace Background"
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover object-center opacity-40"
+    <section className="relative w-full overflow-hidden bg-slate-950 py-10 md:py-16 border-b border-slate-900">
+      {/* Background Graphic Image Element with Dark Overlay */}
+      <div className="absolute inset-0 z-0 opacity-40 mix-blend-luminosity hover:mix-blend-normal transition-all duration-700">
+        <div
+          className="w-full h-full bg-cover bg-center md:bg-right"
+          style={{ backgroundImage: "url('/hero-bg.jpg')" }}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-slate-950/40 via-slate-950/80 to-slate-950" />
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/70 to-slate-950/90" />
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/40 to-transparent" />
       </div>
 
-      <div className={`relative z-10 ${container} pt-10 pb-20 md:pt-14 md:pb-28`}>
-        {/* eyebrow rule — states a fact, not a decorative badge */}
-        <div className="flex items-center gap-3 mb-16 md:mb-24 text-slate-500">
-          <span className="text-xs tracking-wide">Surabie Games</span>
-          <span className="h-px flex-1 bg-slate-800" />
-          <span className="text-xs tracking-wide">Pasar Digital Gaming</span>
-        </div>
+      {/* Ember glow rising from the bottom, in the site's red palette */}
+      <ShaderFire
+        className="z-[1] mix-blend-screen opacity-60"
+        theme="dark"
+        colors={['#450a0a', '#dc2626', '#fca5a5']}
+        intensity={0.4}
+        height={0.4}
+        speed={0.4}
+        interactive={false}
+      />
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-          {/* Left — headline, copy, search */}
-          <div className="lg:col-span-7">
-            <h1 className="text-white font-black leading-[1.05] tracking-tight mb-6 text-4xl md:text-6xl">
-              Tempat aset game dijaga, bukan sekadar dijual.
-            </h1>
+      {/* Faint interactive glyph trail that follows the pointer */}
+      <AsciiFluid
+        className="z-[2] opacity-[0.16] hidden md:block"
+        theme="dark"
+        cellSize={14}
+        color="#f87171"
+        backgroundColor="#020617"
+        dissipation={0.06}
+        animate={false}
+      />
 
-            <p className="text-slate-400 text-base leading-relaxed max-w-md mb-10">
-              Koin, item, dan jasa joki dari penjual terverifikasi. Setiap transaksi
-              ditahan dalam escrow sampai barang diterima sesuai deskripsi.
-            </p>
+      {/* Hero Content */}
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-xl text-left">
+          <Badge className="bg-red-500/10 text-red-400 border border-red-500/20 mb-6 px-4 py-1.5 rounded-full inline-flex items-center gap-2 backdrop-blur-md">
+            <Sparkles className="w-3.5 h-3.5 text-red-400 animate-pulse" />
+            <span className="font-semibold text-xs tracking-wide">PASAR TRANS-GAME TERPERCAYA #1</span>
+          </Badge>
 
-            <div className="max-w-md">
-              <div className={`flex items-center gap-3 ${cardBase} px-4 py-3`}>
-                <Search className={`w-4 h-4 ${iconAccent} shrink-0`} />
-                <Input
-                  placeholder="Cari game, currency, atau layanan"
-                  className="border-0 bg-transparent text-white placeholder:text-slate-500 p-0 text-sm focus-visible:ring-0 h-auto flex-1"
-                />
-                <button className={`${buttonPrimary} p-2.5 shrink-0`} aria-label="Cari">
-                  <ArrowUpRight className="w-4 h-4" />
-                </button>
-              </div>
-              <div className="flex flex-wrap items-center gap-2 mt-4 text-xs text-slate-500">
-                <span>Dicari minggu ini:</span>
-                <a href="#" className={tagPill}>Diablo 4</a>
-                <a href="#" className={tagPill}>Roblox</a>
-                <a href="#" className={tagPill}>Valorant Points</a>
-              </div>
+          <h1 className="text-3xl md:text-6xl font-black text-white tracking-tight leading-tight mb-4">
+            Pasar untuk Segala Sesuatu <br />
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-red-500 via-rose-400 to-amber-400">
+              Gaming & Beyond
+            </span>
+          </h1>
+
+          <p className="text-slate-300 text-sm md:text-base mb-8 font-normal leading-relaxed">
+            Beli dan jual jarahan dalam permainan, koin, joki pro, atau bergabung dengan rekan tim terbaik di platform teraman.
+          </p>
+
+          {/* Search Box */}
+          <div className="bg-slate-900/90 backdrop-blur-xl p-2 rounded-2xl border border-slate-700/60 shadow-2xl shadow-red-950/30">
+            <div className="relative flex items-center">
+              <Search className="w-5 h-5 text-slate-400 absolute left-4" />
+              <Input
+                placeholder="Cari Game, Currency, Item, atau Layanan..."
+                className="w-full bg-transparent border-0 text-white placeholder:text-slate-400 pl-12 pr-28 py-3.5 text-sm md:text-base focus-visible:ring-0"
+              />
+              <button className="absolute right-2 bg-gradient-to-r from-red-600 to-rose-600 hover:from-red-500 hover:to-rose-500 text-white font-bold px-6 py-2.5 rounded-xl text-xs md:text-sm shadow-md transition-all">
+                Cari
+              </button>
             </div>
           </div>
 
-          {/* Right — market snapshot, replaces the old decorative badge */}
-          <div className="lg:col-span-5">
-            <div className={`${cardBase} overflow-hidden`}>
-              <div className="flex items-center justify-between px-5 py-4 border-b border-slate-800">
-                <span className="text-xs text-slate-400">Aktivitas Pasar</span>
-                <span className="text-xs text-slate-500">Hari ini</span>
-              </div>
-              <ul>
-                {snapshot.map((row, idx) => (
-                  <li
-                    key={row.title}
-                    className={`flex items-center justify-between px-5 py-4 ${
-                      idx !== snapshot.length - 1 ? 'border-b border-slate-800' : ''
-                    }`}
-                  >
-                    <div>
-                      <p className="text-white text-sm font-medium">{row.title}</p>
-                      <p className="text-slate-500 text-xs mt-0.5">{row.tag}</p>
-                    </div>
-                    <span className="text-slate-400 text-xs">{row.offers}</span>
-                  </li>
-                ))}
-              </ul>
-              <div className="px-5 py-4 bg-slate-950/60">
-                <p className="text-white text-sm font-medium">99.2% transaksi tuntas tanpa sengketa</p>
-                <p className="text-slate-500 text-xs mt-0.5">Berdasarkan 2 juta+ transaksi terverifikasi</p>
-              </div>
-            </div>
+          {/* Top Searches Tags */}
+          <div className="mt-6 flex flex-wrap items-center gap-2 text-xs">
+            <span className="text-slate-400 font-medium flex items-center gap-1 mr-1">
+              <Flame className="w-3.5 h-3.5 text-amber-500" /> Pencarian Populer:
+            </span>
+            {topSearches.map((tag, idx) => (
+              <button
+                key={idx}
+                className="bg-slate-900/70 hover:bg-slate-800 text-slate-300 hover:text-white px-3 py-1 rounded-full border border-slate-800 transition-colors"
+              >
+                {tag}
+              </button>
+            ))}
           </div>
         </div>
       </div>
