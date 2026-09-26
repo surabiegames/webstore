@@ -1,24 +1,37 @@
-import React from 'react';
-import { Search, Globe } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { container, iconAccent } from '@/lib/section-styles';
+'use client';
 
-export const Navbar = () => {
+import React from 'react';
+import Link from 'next/link';
+import { Search, Globe } from 'lucide-react';
+import { buttonVariants } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { cn } from '@/lib/utils';
+
+const NAV_LINKS = [
+  { label: 'Produk Digital', href: '/produk' },
+  { label: 'Layanan Sewa Waktu', href: '/sewa' },
+];
+
+export function Navbar() {
   return (
     <header className="sticky top-0 z-50 w-full bg-slate-950/90 backdrop-blur-md border-b border-slate-900 text-slate-100">
-      <div className={`${container} h-16 flex items-center justify-between gap-4`}>
+      <div className="container mx-auto h-16 flex items-center justify-between gap-4">
         <div className="flex items-center gap-8">
-          <a href="#" className="flex items-center gap-2 text-xl font-black tracking-wider text-white group">
+          <Link href="/" className="flex items-center gap-2 text-xl font-black tracking-wider text-white group">
             <span className="w-9 h-9 rounded-xl bg-gradient-to-tr from-red-600 to-rose-500 flex items-center justify-center font-black text-white shadow-lg shadow-red-500/30 group-hover:scale-105 transition-transform">
               S
             </span>
-            <span>SURABIE<span className="text-red-500">GAMES</span></span>
-          </a>
+            <span>
+              SURABIE<span className="text-red-500">GAMES</span>
+            </span>
+          </Link>
 
           <nav className="hidden md:flex items-center gap-6 text-sm font-medium text-slate-300">
-            <a href="#" className="hover:text-red-400 transition-colors">Produk Digital</a>
-            <a href="#" className="hover:text-red-400 transition-colors">Layanan Sewa Waktu</a>
+            {NAV_LINKS.map(({ label, href }) => (
+              <Link key={href} href={href} className="hover:text-red-400 transition-colors">
+                {label}
+              </Link>
+            ))}
           </nav>
         </div>
 
@@ -32,19 +45,27 @@ export const Navbar = () => {
 
         <div className="flex items-center gap-3">
           <button className="flex items-center gap-1.5 text-xs font-semibold px-2.5 py-1.5 rounded-lg border border-slate-800 text-slate-300 hover:bg-slate-900 transition-colors">
-            <Globe className={`w-3.5 h-3.5 ${iconAccent}`} />
+            <Globe className="" />
             <span>ID / IDR</span>
           </button>
 
-          <a href="#" className="hidden sm:block text-xs font-semibold text-slate-300 hover:text-white px-3 py-1.5 transition-colors">
+          <Link
+            href="/auth?mode=daftar"
+            className="hidden sm:block text-xs font-semibold text-slate-300 hover:text-white px-3 py-1.5 transition-colors"
+          >
             Menjadi Penjual
-          </a>
-
-          <Button className="bg-gradient-to-r from-red-600 to-rose-600 hover:from-red-500 hover:to-rose-500 text-white shadow-lg shadow-red-600/20 rounded-full text-xs font-bold px-5">
+          </Link>
+          <Link
+            href="/auth"
+            className={cn(
+              buttonVariants(),
+              "bg-gradient-to-r from-red-600 to-rose-600 hover:from-red-500 hover:to-rose-500 text-white shadow-lg shadow-red-600/20 rounded-full text-xs font-bold px-5 h-8 inline-flex items-center"
+            )}
+          >
             Masuk / Daftar
-          </Button>
+          </Link>
         </div>
       </div>
     </header>
   );
-};
+}

@@ -1,5 +1,5 @@
 import React from 'react';
-import { container, sectionBase } from '@/lib/section-styles';
+import { container, sectionBase } from '@/lib/SectionStyles';
 
 export const PaymentMethodsBar = () => {
   const methods = ['BCA', 'Mandiri', 'BNI', 'BRI', 'BSI', 'Indomaret', 'Alfamart', 'QRIS', 'VISA', 'Mastercard', 'eWallet'];

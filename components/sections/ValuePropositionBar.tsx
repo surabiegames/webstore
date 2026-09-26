@@ -1,6 +1,6 @@
 import React from 'react';
 import { ShieldCheck, Zap, Star, Headphones } from 'lucide-react';
-import { container } from '@/lib/section-styles';
+import { container } from '@/lib/SectionStyles';
 
 export const ValuePropositionBar = () => {
   const items = [

@@ -2,7 +2,7 @@ import React from 'react';
 import { Users, ChevronRight } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { container, sectionBase, sectionHeading, viewAllLink, cardBase, buttonPrimary, iconAccent, avatarRingOnline } from '@/lib/section-styles';
+import { container, sectionBase, sectionHeading, viewAllLink, cardBase, buttonPrimary, iconAccent, avatarRingOnline } from '@/lib/SectionStyles';
 
 export const GamePalSection = () => {
   const pals = [

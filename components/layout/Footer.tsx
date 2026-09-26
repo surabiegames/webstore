@@ -1,5 +1,4 @@
-import React from 'react';
-import { container } from '@/lib/section-styles';
+const container = 'mx-auto max-w-[1400px] px-4 sm:px-6 lg:px-8';
 
 export const Footer = () => {
   return (

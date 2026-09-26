@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { container, sectionBase, sectionHeading, sectionSubtitle, cardFeature, buttonPrimary } from '@/lib/section-styles';
+import { container, sectionBase, sectionHeading, sectionSubtitle, cardFeature, buttonPrimary } from '@/lib/SectionStyles';
 
 export const AffiliateBannerSection = () => {
   return (

@@ -1,7 +1,7 @@
 import React from 'react';
 import { ChevronRight } from 'lucide-react';
 import { Card } from '@/components/ui/card';
-import { container, sectionBase, sectionHeading, viewAllLink, cardBase, badgeAccent } from '@/lib/section-styles';
+import { container, sectionBase, sectionHeading, viewAllLink, cardBase, badgeAccent } from '@/lib/SectionStyles';
 
 export const PopularProductsSection = () => {
   const games = [

@@ -2,7 +2,7 @@ import React from 'react';
 import { ShieldCheck, Lock, Users, Headphones } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { container, sectionBase, cardFeature, buttonPrimary, iconAccent } from '@/lib/section-styles';
+import { container, sectionBase, cardFeature, buttonPrimary, iconAccent } from '@/lib/SectionStyles';
 
 export const SecurityTrustSection = () => {
   return (

@@ -10,19 +10,19 @@ export const HeroSection = () => {
 
   return (
     <section className="relative w-full overflow-hidden bg-slate-950 py-10 md:py-16 border-b border-slate-900">
-      {/* Background Graphic Image Element with Dark Overlay */}
-      <div className="absolute inset-0 z-0 opacity-40 mix-blend-luminosity hover:mix-blend-normal transition-all duration-700">
+      {/* Background Graphic Image Element */}
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
         <div
-          className="w-full h-full bg-cover bg-center md:bg-right"
+          className="w-full h-full bg-cover bg-center md:bg-right opacity-75 transition-opacity duration-700"
           style={{ backgroundImage: "url('/hero-bg.jpg')" }}
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/70 to-slate-950/90" />
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/40 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/30 to-slate-950/60" />
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/70 to-transparent" />
       </div>
 
       {/* Ember glow rising from the bottom, in the site's red palette */}
       <ShaderFire
-        className="z-[1] mix-blend-screen opacity-60"
+        className="z-[1] mix-blend-screen opacity-60 pointer-events-none"
         theme="dark"
         colors={['#450a0a', '#dc2626', '#fca5a5']}
         intensity={0.4}

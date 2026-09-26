@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { Gamepad2, Laptop, ShoppingBag, Wallet, Phone } from 'lucide-react';
 import { Card } from '@/components/ui/card';
-import { container, sectionBase, sectionHeading, cardBase, tagPill, iconAccent } from '@/lib/section-styles';
+import { container, sectionBase, sectionHeading, cardBase, tagPill, iconAccent } from '@/lib/SectionStyles';
 
 export const CategoryExplorerSection = () => {
   const [activeTab, setActiveTab] = useState('digital');

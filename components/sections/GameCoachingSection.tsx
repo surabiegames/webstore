@@ -4,7 +4,7 @@ import React from 'react';
 import { ChevronRight } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { container, sectionBase, sectionHeading, sectionSubtitle, eyebrow, viewAllLink, cardBase, buttonSecondary, avatarRing } from '@/lib/section-styles';
+import { container, sectionBase, sectionHeading, sectionSubtitle, eyebrow, viewAllLink, cardBase, buttonSecondary, avatarRing } from '@/lib/SectionStyles';
 
 export const GameCoachingSection = () => {
   const coaches = [
